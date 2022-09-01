@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package auth;
+
+message AuthRequestData {
+    string username = 1;
+    string passwd = 2;
+}
+
+message AuthResponseData {
+    string username = 1;
+    bool authenticated = 2;
+}
+
+service Auth{
+    //authenticate user with username and password
+    rpc Authenticate(AuthRequestData) returns (AuthResponseData) {}
+}

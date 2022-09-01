@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package recommendation;
+
+message Book {
+    string title = 1;
+    string author = 2;
+    int32 isbn = 3;
+}
+
+message BookList {
+    repeated Book book = 1;
+}
+
+message User {
+    int32 userid = 1;
+}
+
+service Recom{
+    //recommendation engine call
+    rpc GetRecommendation(User) returns (BookList) {}
+}
